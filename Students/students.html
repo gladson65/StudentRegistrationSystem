@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- box icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- google font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+    <!-- favicon icon -->
+    <link rel="icon" type="image/x-icon" href="../images/icon.png">
+    <!-- external css link -->
+    <link rel="stylesheet" href="./students.css">
+    <title>Student Records</title>
+</head>
+<body>
+
+    <!-- header section start -->
+    <header>
+        <!-- navbar start -->
+        <nav>
+            <!-- sidebar -->
+            <ul class="sidebar">
+                <li><a href="#" class="hide-bar"><i class='bx bx-right-arrow-alt bx-md'></i></a></li>
+                <li><a href="../index.html">Registration</a></li>
+                <li><a href="#">SignIn</a></li>
+                <li><a href="#">SignUp</a></li>
+            </ul>
+    
+            <!-- frontbar -->
+            <ul>
+                <li><a href="#" class="logo">School Management</a></li>
+                <li class="hide"><a href="../index.html">Registration</a></li>
+                <li class="hide"><a href="#">SignUp</a></li>
+                <li class="hide"><a href="#">SignIn</a></li>
+                <li class="menu-btn"><a href="#" class="slide"><i class='bx bx-menu-alt-right bx-md'></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- student details section -->
+    <section id="studentDetailsSection">
+        
+        <!-- content heading -->
+        <div class="heading">
+            <h1 id="h1">Student Details</h1>
+            <br>
+            <p class="msg"></p>
+        </div>
+
+        <div class="container">
+            
+            <!-- pop-up box -->
+            <div class="popUp">
+                <a class="hideIDpopBox">
+                    <i class='bx bx-window-close bx-md'></i>
+                </a>
+                <div>
+                    <input class="idDelete" type="number" placeholder="Enter ID">
+                    <button id="delete">Delete</button>
+                </div>
+
+                <div>
+                    <input class="psw" type="password" placeholder="Enter password">
+                    <button id="pswBtn">Reset Data</button>
+                </div>
+
+                <div>
+                    <button id="update">Update</button>
+                </div>
+                
+            </div>
+
+
+            <!-- update form -->
+            <div class="updateForm">
+                <a class="hideButton">
+                    <i class='bx bx-window-close bx-md'></i>
+                </a>
+                <form action="#" id="studentForm">
+                    <div>
+                        <label for="student-Id">Enter Student ID To Update Student Details </label>
+                        <input type="number" id="student-Id" name="student-Id" required>
+                        <p class="error id-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="student-name">Student Name</label>
+                        <input type="text" id="student-name" name="student-name" required>
+                        <p class="error name-error"></p>
+                    </div>
+                
+                    <div>
+                        <label for="email-Id">Email ID</label>
+                        <input type="email" id="email-Id" name="email-Id" required>
+                        <p class="error email-error"></p>
+                    </div>
+                
+                    <div>
+                        <label for="contact">Contact No</label>
+                        <input type="number" id="contact" name="contact" required>
+                        <p class="error contact-error"></p>
+                    </div>
+                
+                    <div class="updateDiv">
+                        <button type="submit" id="updateStudent">Update</button>
+                    </div>
+                
+                </form>
+            </div>
+
+            <!-- students table -->
+            <div class="content">
+                <table>
+                   <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL ID</th>
+                        <th>CONTACT</th>
+                    </tr>
+                   </thead>
+                    <tbody class="tbody">
+
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+    <!-- internal script start-->
+    <script>
+        window.onload = function() {
+
+            // slide bar open 
+            const icon = document.querySelector(".slide");
+            icon.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                let sidebar = document.querySelector(".sidebar");
+                sidebar.style.display = "flex";
+                this.style.opacity = "0";
+            })
+
+            // slide bar close 
+            const hideButton = document.querySelector(".hide-bar");
+            hideButton.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                let sidebar = document.querySelector(".sidebar");
+                sidebar.style.display = "none";
+                icon.style.opacity = "1";
+            })
+
+
+            // get data
+            for (let i = 0; i <= 1000; i++) {
+                let n = localStorage.getItem(`${i}`);
+               
+
+                var currentTr = document.querySelector(".tbody");
+                if (n !== null) {
+                    // converting data string to array
+                    let g = localStorage.getItem(`${i}`);
+                    const gArr = JSON.parse(g);
+
+                    // creating dynamic tr and td with stored details
+                    const tr = document.createElement("tr");
+
+                    const td1 = document.createElement("td");
+                    var idBtn = document.createElement("button");
+                    const id = document.createTextNode(`${i}`);
+                    idBtn.appendChild(id);
+                    td1.appendChild(idBtn);
+
+                    const td2 = document.createElement("td");
+                    const name = document.createTextNode(gArr[0].name);
+                    td2.appendChild(name);
+
+                    const td3 = document.createElement("td");
+                    const sClass = document.createTextNode(gArr[0].emailID);
+                    td3.appendChild(sClass);
+
+                    const td4 = document.createElement("td");
+                    const rollNo = document.createTextNode(gArr[0].phone);
+                    td4.appendChild(rollNo);
+                   
+
+                    
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+
+                    currentTr.appendChild(tr);
+
+                    // // hide and show pop-up box
+                    idBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        let pop = document.querySelector(".popUp");
+                        pop.classList.toggle("popShow")
+
+                    })
+
+                
+                }  
+
+        
+            }
+
+            
+             // delete data
+            let del = document.querySelector("#delete");
+            del.addEventListener("click", function (e) {
+                e.preventDefault();
+                let idDelete = document.querySelector(".idDelete").value;
+                
+                if (localStorage.getItem(idDelete)) {
+                    localStorage.removeItem(idDelete)
+
+                    //show msg 
+                    let msg = document.querySelector(".msg");
+                    msg.style.display = "block";
+                    msg.innerHTML = "Student Details Deleted!!!"
+
+                    // hide msg after 1s
+                    let flag = 0;
+                    const interval = setInterval(function () {
+                        flag++;
+
+                        if (flag === 1) {
+                            let msg = document.querySelector(".msg");
+                            msg.style.display = "none";
+                            location.reload();
+                            clearInterval(interval);
+                        }
+                    }, 1000);  
+                    
+                }
+                else {
+                    //show msg 
+                    let msg = document.querySelector(".msg");
+                    msg.style.display = "block";
+                    msg.innerHTML = "Invalid Student ID!!!"
+                    
+                    // // hide msg after 2s
+                    let flag = 0;
+                    const interval = setInterval(function () {
+                        flag++;
+
+                        if (flag === 1) {
+                            let msg = document.querySelector(".msg");
+                            msg.style.display = "none";
+                            clearInterval(interval);
+                        }
+                    }, 2000);
+                }
+                
+            })
+
+
+            // reset all data
+            let reset = document.querySelector("#pswBtn");
+            reset.addEventListener("click", function(e) {
+                e.preventDefault();
+
+                let psw = document.querySelector(".psw").value;
+                // check password
+
+                if (psw === '12345678') {
+                    localStorage.clear();
+                    location.reload();
+                }
+                else {
+                    alert("Please enter correct password")
+                }
+                
+            })
+
+            // popup-box hide & show
+            let hideIDpopBox = document.querySelector(".hideIDpopBox");
+            hideIDpopBox.addEventListener("click", function (e) {
+                e.preventDefault();
+                let pop = document.querySelector(".popUp");
+                pop.classList.toggle("popShow")
+            })
+            
+            
+            
+            // form pop up
+            let updateBtn = document.querySelector("#update");
+            updateBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                // select update form and make it visible
+                
+                let updateForm = document.querySelector(".updateForm");
+                updateForm.classList.toggle("updateShow")
+
+                let pop = document.querySelector(".popUp");
+                pop.classList.toggle("popShow")
+
+                // hide content
+                let content = document.querySelector(".content");
+                content.style.display = "none";
+
+                // change heading
+                let h1 = document.querySelector("#h1");
+                h1.innerHTML = "Student Update"
+            })
+
+            // hide form
+            let hideForm = document.querySelector(".hideButton");
+            hideForm.addEventListener("click", function(e) {
+                e.preventDefault();
+                let updateForm = document.querySelector(".updateForm");
+                updateForm.classList.toggle("updateShow");
+
+                // show content
+                let content = document.querySelector(".content");
+                content.style.display = "block";
+
+                // change heading
+                let h1 = document.querySelector("#h1");
+                h1.innerHTML = "Student Details"
+
+                location.reload()
+            })
+
+            // update data
+            let updateStudent = document.querySelector("#updateStudent");
+            updateStudent.addEventListener("click", function(e) {
+                e.preventDefault();
+
+                
+
+                 // Taking input values in variables
+                let studentId = document.querySelector("#student-Id").value;
+                let studentName = document.querySelector("#student-name").value;
+                let email = document.querySelector("#email-Id").value;
+                let contact = document.querySelector("#contact").value;
+           
+                
+                 // data for update
+                const student = [{
+                    name: studentName,
+                    emailID: email,
+                    phone: contact,
+                }];
+                
+                // regEX for validation 
+                let regex = /^[a-zA-Z]+$/;
+                let regexMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                let regexNumber = /^[1-9][0-9]*$/; //leading zero not allowed
+                let sName = studentName.replaceAll(/\s/g, '');
+                let err = document.querySelector(".name-error");
+                
+
+                if (localStorage.getItem(studentId)) {
+
+                     // checking for valid character
+                    if (sName === null || sName === "" || regex.test(sName) === false) {
+                        err.style.display = "block";
+                        document.querySelector(".name-error").innerHTML = "Please enter only Character";
+                    }
+                    // checking for valid mail
+                    else if (email === null || email === "" || regexMail.test(email) === false) {
+                        document.querySelector(".email-error").style.display = "block";
+                        document.querySelector(".email-error").innerHTML = "Please enter Valid Email: abc@gmail.com";
+                    }
+                    // checking for valid contact contact-error
+                    else if (contact === null || contact === "" || regexNumber.test(contact) === false || contact.length !== 10) {
+                        document.querySelector(".contact-error").style.display = "block";
+                        document.querySelector(".contact-error").innerHTML = "Leading Zero not allowed, input 10 digits";
+                    }
+
+                    else {
+                        localStorage.setItem(studentId, JSON.stringify(student));
+                        let msg = document.querySelector(".msg");
+                        msg.style.display = "block";
+                        msg.innerHTML = "Student Details Updated!!!"
+                        let form = document.querySelector("#studentForm")
+                        document.querySelector(".id-error").style.display = "none";
+                        document.querySelector(".name-error").style.display = 'none';
+                        document.querySelector(".email-error").style.display = "none";
+                        document.querySelector(".contact-error").style.display = "none";
+                        form.reset()
+
+                    }
+
+                  
+                }
+                else {
+                    document.querySelector(".id-error").style.display = "block";
+                    document.querySelector(".id-error").innerHTML = "Enter Valid Student ID";
+                }
+                
+                // hide msg after 2.5s
+                let flag = 0;
+                const interval = setInterval(function () {
+                    flag++;
+
+                    if (flag === 1) {
+                        let msg = document.querySelector(".msg");
+                        msg.style.display = "none";
+                        clearInterval(interval);
+
+                    }
+                }, 2500);
+            
+            
+            })
+
+            // hide msg after 2.5s
+            let flag = 0;
+            const interval = setInterval(function () {
+                flag++;
+
+                if (flag === 1) {
+                    let msg = document.querySelector(".msg");
+                    msg.style.display = "none";
+                    clearInterval(interval);
+                }
+            }, 2500);
+            
+
+        }
+    </script>
+</body>
+</html>

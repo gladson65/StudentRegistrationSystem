@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content="SCHOOLMANAGEMENTSYSTEM, HTML, CSS, JAVASCRIPT, STUDENTRECORDSYSTEM, CRUDAPPLICATION, DOMMAINPULATION">
+    <meta name="description" content="Student management system to keep record student details and show them on a page or update and delete student data according to the need.">
+    <meta name="author" content="Gladson Routh">
+    <!-- box icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- favicon icon -->
+    <link rel="icon" type="image/x-icon" href="./images/icon.png">
+    <!-- google font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+    <!-- external css link -->
+    <link rel="stylesheet" href="./style.css">
+    <title>School Management</title>
+</head>
+<body>
+
+    <!-- header section start -->
+    <header>
+        <!-- navbar start -->
+        <nav>
+            <!-- sidebar -->
+            <ul class="sidebar">
+                <li><a href="#" class="hide-bar"><i class='bx bx-right-arrow-alt bx-md'></i></a></li>
+                <li><a href="./Students/students.html">Students</a></li>
+                <li><a href="#">SignIn</a></li>
+                <li><a href="#">SignUp</a></li>
+            </ul>
+
+            <!-- frontbar -->
+            <ul>
+                <li><a href="#" class="logo">School Management</a></li>
+                <li class="hide"><a href="./Students/students.html">Students</a></li>
+                <li class="hide"><a href="#">SignUp</a></li>
+                <li class="hide"><a href="#">SignIn</a></li>
+                <li class="menu-btn"><a href="#" class="slide"><i class='bx bx-menu-alt-right bx-lg'></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- form section -->
+    <section class="form-section">
+        <!-- content heading -->
+        <div class="heading">
+            <h1>Student Registration</h1>
+            <br>
+            <p class="msg"></p>
+        </div>
+        <div class="container">
+            <div class="content">
+                <form action="#" id="studentForm">
+                    <div class="name-div">
+                        <a class="resetIcon">
+                            <i class='bx bx-refresh bx-md'></i>
+                        </a>
+                        <label for="student-name">Student Name</label>
+                        <input type="text" id="student-name" name="student-name" required>
+                        <p class="error username-error"></p>
+                    </div>  
+                    
+                    <div class="id-div">
+                        <label for="student-Id">Student ID</label>
+                        <input type="number" id="student-Id" name="student-Id" required>
+                        <p class="error id-error"></p>
+                    </div>
+                   
+                    <div class="email-div">
+                        <label for="email-Id">Email ID</label>
+                        <input type="email" id="email-Id" name="email-Id" required>
+                        <p class="error email-error"></p>
+                    </div>
+                    
+                    <div class="contact-div">
+                        <label for="contact">Contact No</label>
+                        <input type="number" id="contact" name="contact" required>
+                        <p class="error contact-error"></p>
+                    </div>
+
+                    <div class="btn-div">
+                        <button type="submit" id="btn">Register</button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <script src="./main.js"></script>
+</body>
+</html>

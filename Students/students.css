@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(../images/back.jpg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+/* navbar style */
+nav {
+    background-color: black;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    font-family: fantasy;
+    letter-spacing: 0.1rem;
+}
+
+/* logo style */
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    color: rgb(255, 0, 0)
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aqua;
+    transition: background-color 0.2s linear;
+}
+
+nav a:hover {
+    background-color: #f13a3a;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+nav li:first-child a:hover {
+    background-color: black;
+    cursor: default;
+}
+
+/* sidebar style */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 20px black;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 1100;
+}
+
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+    transition: background-color 0.2s linear;
+}
+
+.sidebar a:hover {
+    background-color: cadetblue;
+}
+
+.hide-bar:hover {
+    color: red;
+}
+
+.slide:hover {
+    color: black;
+}
+
+
+/* student details section style */
+/* content heading */
+.heading {
+    position: absolute;
+    top: 12%;
+    width: 100vw;
+    height: 50px;
+    /* background-color: white; */
+    text-align: center;
+    z-index: 998;
+}
+
+/* msg para style */
+.msg {
+    width: 100%;
+    height: 20px;
+    color: yellow;
+    background-color: black;
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.heading>h1 {
+    font-family: "Satisfy", cursive;
+    font-size: 2rem;
+    font-style: italic;
+    letter-spacing: 0.5rem;
+    color: rgb(0, 0, 0);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.content {
+    width: 70%;
+    height: 65%;
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    position: relative;
+}
+
+/* pop-up box style */
+.popUp {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    background-color: #fff;
+    margin: 0 auto;
+    display: none;
+}
+
+/* popup toggle button style */
+.hideIDpopBox {
+    position: absolute;
+    top: -2%;
+    right: -1%;
+    transition: all 0.2s linear;
+}
+.hideIDpopBox:hover {
+    color: red;
+}
+
+input {
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.popShow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(17, 101, 170, 0.771);
+} 
+
+input{
+    border-style: none;
+}
+
+button {
+    border-style: none;
+}
+
+#delete {
+    background-color: black;
+    color: aquamarine;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+}
+
+#delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 3px 10px rgb(255, 255, 255);
+}
+
+#pswBtn {
+    border-radius: 10px;
+    transition: all 0.2s linear;
+}
+
+#pswBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 3px 10px rgb(255, 255, 255);
+}
+
+#update {
+    background-color: rgb(255, 234, 0);
+    color: rgb(2, 2, 2);
+    border-radius: 10px;
+    font-weight: bold;
+    width: 15rem;
+    font-family: cursive;
+    font-size: 16px;
+    letter-spacing: 0.1rem;
+    transition: all 0.2 linear;
+}
+
+#update:hover {
+    box-shadow: 2px 3px 10px white;
+}
+
+/* update form style */
+.updateForm {
+    position: absolute;
+    margin: 0 auto;
+    width: 50%;
+    height: 500px;
+    background-color:rgba(100, 148, 237, 0.571);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+    display: none;
+}
+
+.updateShow {
+    display: flex;
+    z-index: 999;
+}
+
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form div>#updateStudent {
+    width: 30%;
+    height: 2rem;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    border-radius: 20px;
+    font-family: cursive;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: all 0.2s linear;
+}
+
+#updateStudent:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 3px 10px 2px rgb(97, 246, 189);
+}
+
+form div>input {
+    width: 100%;
+    height: 2.2rem;
+    border-radius: 10px;
+    padding: 2px 5px;
+    border-style: none;
+}
+
+form div>label {
+    font-size: 1.2rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+form div>p {
+    display: none;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    text-shadow: -2px -3px 3px rgb(255, 252, 252);
+}
+
+/* hide form */
+.hideShow {
+    display: none;
+}
+
+.hideButton {
+    position: absolute;
+    top: -1%;
+    right: -1%;
+}
+
+.hideButton:hover {
+    color: rgb(255, 0, 0);
+}
+
+
+
+
+
+/* table style */
+table {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    border-spacing: 0 5px;
+}
+
+.table2 {
+    width: 10%;
+}
+
+tbody {
+    display: block;
+    height: 450px;
+    overflow: auto;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    /* even columns width , fix width of table too*/
+}
+
+thead {
+    width: calc(100% - 0em)
+        /* scrollbar is average 1em/16px width, remove it from thead width */
+}
+
+
+td {
+    padding: 15px;
+    border: 1px solid black;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-family:sans-serif;
+    background-color:rgba(33, 58, 60, 0.631);
+    color:#fff200;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+th {
+    color: red;
+}
+
+
+
+button{
+    width: 6rem;
+    height: 2rem;
+    border-radius: 5px;
+    background-color: black;
+    color:rgb(238, 75, 75);
+    font-weight: bold;
+    transition: all 0.2s linear;
+    border-style: none;
+}
+
+button:hover {
+    transform: translateX(-2px);
+    box-shadow: 4px 3px 10px rgb(131, 242, 247);
+}
+
+.updateDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* scrollbar design */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(91, 182, 238);
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b8fd57;
+}
+
+
+
+
+
+
+
+
+
+
+/* media query */
+@media (max-width: 768px) {
+
+    /* heading style */
+    .heading {
+        top: 9%;
+    }
+
+    .content {
+        width: 90%;
+    }
+    /* frontbar hide */
+    .hide {
+        display: none;
+    }
+
+    /* table style */
+    table {
+        width: 95%;
+    }
+
+    /* update form */
+    .updateForm {
+        width: 70%;
+    }
+}
+
+@media (min-width: 769px) {
+    /* heading style */
+    .heading {
+        top: 8%;
+    }
+
+    .content {
+        height: 70%;
+    }
+    /* hide menu icon */
+    .menu-btn {
+        display: none;
+    }
+
+
+}
