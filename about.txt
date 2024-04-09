@@ -1,0 +1,26 @@
+1> This is a Student Registration System project.
+
+2> Student details including Student name, student ID,
+    email ID, and Contact Number can be store in this application. And it can be displayed
+    student data on the 'Students' page.
+
+3> Display student details: go to Navbar/sidebar --> click on Students.
+
+4> For update, delete individual student details, and reset all data:
+    : click on 'Student ID' button on Student page, it will pop up a box containing
+      all this features.
+
+5> For reset all Student Details: There have to input a password.
+    : password -> '12345678' --> click on 'Reset Data' button
+
+6> For delete individual student details: There have to input Student ID which
+    you want to delete and click on 'Delete' button.
+
+7> For update, click on 'Update' button inside popup box. And it will popup another
+    form, where you can update existing student details.
+
+8> This application stores Data in localStorage.
+
+9> Project git link: https://github.com/gladson65/StudentRegistrationSystem
+
+10> project git button: sidebar --> gitbutton.
