@@ -161,7 +161,7 @@ nav li:first-child a:hover {
     backdrop-filter: blur(50px);
     border-radius: 20px;
     padding: 20px;
-    box-shadow: -4px 8px 200px 5px black;
+    box-shadow: -4px 8px 200px 5px rgb(0, 0, 0);
 }
 
 .content form {
@@ -239,6 +239,10 @@ label {
 
 .content form div>input:focus {
     background-color: rgba(0, 0, 0, 0.807);
+}
+
+.content form div>input:hover {
+    box-shadow: 2px 2px 10px 6px rgb(82, 104, 228);
 }
 
 .content form div>label {

@@ -105,6 +105,7 @@ window.onload = function() {
         document.querySelector(".email-error").style.display = "none";
         document.querySelector(".contact-error").style.display = "none";
         form.reset();
+        window.location.reload()
 
     })
 
