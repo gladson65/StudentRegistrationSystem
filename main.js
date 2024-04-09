@@ -34,7 +34,7 @@ window.onload = function() {
             // checking for valid character
         if (sName === null || sName === "" || regex.test(sName) === false) {
             err.style.display = "block";
-            document.querySelector(".username-error").innerHTML ="Please enter Valid Characters";
+            document.querySelector(".username-error").innerHTML ="Please enter Valid Characters: No Number";
         }
             // Checking for student ID
         else if (studentId === null || studentId === "" || regexNumber.test(studentId) === false || studentId.length > 3 || studentId.length < 3) {
