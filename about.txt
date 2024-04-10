@@ -24,3 +24,5 @@
 9> Project git link: https://github.com/gladson65/StudentRegistrationSystem
 
 10> project git button: sidebar --> gitbutton.
+
+11> Responsiveness: media query added for (min-width 768px) and (max-width 767px).
