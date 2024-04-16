@@ -56,12 +56,12 @@
                 <a class="hideIDpopBox">
                     <i class='bx bx-window-close bx-md'></i>
                 </a>
-                <div>
+                <div class="delete-div">
                     <input class="idDelete" type="number" placeholder="Enter ID">
                     <button id="delete">Delete</button>
                 </div>
 
-                <div>
+                <div class="reset-div">
                     <input class="psw" type="password" placeholder="Enter password">
                     <button id="pswBtn">Reset Data</button>
                 </div>
@@ -138,6 +138,17 @@
     <!-- internal script start-->
     <script>
         window.onload = function() {
+
+             // max width 360px
+            let size = window.innerWidth;
+            if (size <= 370) {
+                let logo = document.querySelector(".logo");
+                logo.innerHTML = "S.Management";
+
+                let slide = document.querySelector(".slide");
+                slide.innerHTML = "<i class='bx bx-menu-alt-right bx-sm'></i>"
+
+            }
 
             // slide bar open 
             const icon = document.querySelector(".slide");

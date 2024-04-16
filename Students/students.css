@@ -354,9 +354,6 @@ table {
     border-spacing: 0 5px;
 }
 
-.table2 {
-    width: 10%;
-}
 
 tbody {
     display: block;
@@ -492,5 +489,94 @@ button:hover {
         display: none;
     }
 
+
+}
+
+@media (max-width: 360px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    /* nav style  */
+    .logo {
+        font-size: 0.8rem;
+    }
+
+    /* content heading */
+    .heading {
+        top: 10%;
+    }
+
+    .heading>h1 {
+        font-size: 1rem;
+    }
+
+    .heading .msg {
+        font-size: 0.8rem;
+    }
+
+    th {
+        font-size: 10px;
+    }
+    td {
+        font-size: 8px;
+    }
+
+    button {
+        width: 2rem;
+        height: 1.2rem;
+        font-size: 10px;
+        /* border-radius: 5px;
+        background-color: black;
+        color: rgb(238, 75, 75);
+        font-weight: bold;
+        transition: all 0.2s linear;
+        border-style: none; */
+    }
+
+    /* table styling */
+    .content {
+        width:95%;
+    }
+
+    /* popup box style */
+    .popUp {
+        width: 90%;
+        height: 200px;
+    }
+
+    .delete-div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    #delete {
+        width: 20%;
+        height: 30px;
+    }
+
+    .reset-div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    #pswBtn {
+        width: 20%;
+        height: 30px;
+    }
+
+    #update {
+        height: 30px;
+    }
+
+    /* update form style */
+    .updateForm {
+        width: 90%;
+        height: 500px;
+    }
 
 }

@@ -357,3 +357,49 @@ form div>p {
     }
 
 }
+
+@media (max-width: 360px) {
+    body {
+        overflow-x: hidden;
+    }
+    /* nav style  */
+    .logo {
+        font-size: 1rem;
+    }
+
+    /* content heading */
+    .heading {
+        top: 10%;
+    }
+
+    .heading>h1 {
+        font-size: 1rem;
+    }
+    .heading .msg {
+        font-size: 0.8rem;
+    }
+
+    /* form */
+    .content {
+        width: 90%;
+        height: 500px;
+    }
+
+    .content form div>label {
+        font-size: 0.8rem;
+    }
+
+    .content form div > #btn {
+        width: 60%;
+        font-size: 0.8rem;
+        color: black;
+        text-shadow: -2px -3px 3px rgb(255, 255, 255);
+        transition: all 0.2s linear;
+    }
+
+    .content form div>#btn:hover {
+        text-shadow: none;
+    }
+
+
+}

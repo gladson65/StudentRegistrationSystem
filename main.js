@@ -129,4 +129,15 @@ window.onload = function() {
         sidebar.style.display = "none";
         icon.style.opacity = "1";
     })
+
+    // max width 360px
+    let size = window.innerWidth;
+    if (size <= 370) {
+        let logo = document.querySelector(".logo");
+        logo.innerHTML = "S.Management";
+
+        let slide = document.querySelector(".slide");
+        slide.innerHTML = "<i class='bx bx-menu-alt-right bx-sm'></i>"
+
+    }
 }
